@@ -39,3 +39,23 @@ Gospel_SQLiteOpenHelper *helper = [Gospel_SQLiteOpenHelper alloc] init:@"ddd"]
 
 
 
+## 对于充血模型的思考
+
+
+
+1. Model继承FMDBSet
+这样它就可以把Query出来的东西，map到对象上
+
+2. 必要接口
+建表
+- (void)on_create:(FMDB　*)db;
+
+3. 可选接口
+
+查询接口
+- (NSArray *)query:(NSString *)sql  param:(NSDictionary *)param;
+
+管理接口
+- (Boolean)manage:(NSString *)sql  param:(NSDictionary *)param;
+
+
